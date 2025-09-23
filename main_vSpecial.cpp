@@ -422,8 +422,10 @@ const char *ntpServer = "pool.ntp.org"; // web import time
 const long gmtOffset_sec = 7 * 3600;    // Timezone ของประเทศไทย (GMT+7)
 const int daylightOffset_sec = 0;       // ประเทศไทยไม่มี Daylight Saving
 //=======================VARIABLE SERVER============================
-const char *ssid = "btm_F2.4G";     // *** ใส่ชื่อ Wi-Fi ของคุณ ***
-const char *password = "136167118"; // *** ใส่รหัสผ่าน Wi-Fi ของคุณ ***
+// const char *ssid = "btm_F2.4G";     // *** ใส่ชื่อ Wi-Fi ของคุณ ***
+// const char *password = "136167118"; // *** ใส่รหัสผ่าน Wi-Fi ของคุณ ***
+const char *ssid = "Miki";     // *** ใส่ชื่อ Wi-Fi ของคุณ ***
+const char *password = "11111111"; // *** ใส่รหัสผ่าน Wi-Fi ของคุณ ***
 WiFiServer server(23);              // อ็อบเจกต์เซิร์ฟเวอร์ Port 23
 WiFiClient client;                  // สร้าง อ็อบเจกต์ไคลเอนต์ Empty
 //=======================FUNCTION SERVO============================
@@ -813,6 +815,8 @@ void closeThan30()
   oled.drawRect(2, 2, 124, 60, WHITE);
   oled.setCursor(8, 12);
   oled.println("Input Your Password");
+  oled.setCursor(20, 27);
+  oled.print(fullString);
 }
 void showlock()
 {
@@ -890,8 +894,6 @@ void loop()
   oled.setTextSize(1);
   oled.setTextColor(WHITE);
   float d_cm = median5cm();
-
-  Serial.printf("c = %d\n", click);
 
   // input_password();
   if (safeislock == true)
